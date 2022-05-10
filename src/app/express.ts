@@ -1,16 +1,24 @@
-import express, { Application , Request, Response} from 'express'
+import express, { Application, Response } from 'express'
+import { ReasonPhrases } from 'http-status-codes'
+
 import { config } from '../config'
-import pack from '../../package.json'
+
+import intercourse from '../middleware/express'
 
 const app: Application = express()
 
 const port: string | number = config.port
 
-app.get('/', (req: Request, res: Response) => {
+app.use(intercourse())
+
+app.get('/', (req, res: Response) => {
   res.json({
-    app: pack.name,
-    version: pack.version
+    app: 'Express Intercourse API'
   })
+})
+
+app.all('*', (req, res: Response) => {
+  res.status(404).json({ status: 404, message: ReasonPhrases.NOT_FOUND })
 })
 
 app.listen(port, function () {
