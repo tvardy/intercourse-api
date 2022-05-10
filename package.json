@@ -1,0 +1,40 @@
+{
+  "name": "intercourse-api",
+  "version": "0.0.1",
+  "description": "an easter-egg API reffering to human intercourse topics",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "dependencies": {
+    "express": "4.18.1",
+    "koa": "2.13.4",
+    "polka": "0.5.2"
+  },
+  "devDependencies": {
+    "gts": "3.1.0",
+    "typescript": "4.6.4",
+    "@types/node": "^14.11.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tvardy/intercourse-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tvardy/intercourse-api/issues"
+  },
+  "homepage": "https://github.com/tvardy/intercourse-api#readme",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  }
+}
