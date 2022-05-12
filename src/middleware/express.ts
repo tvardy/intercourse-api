@@ -8,10 +8,11 @@ const middleware = (): Handler => router
 Object.keys(routes).forEach((route: string): void => {
     const variations = routes[route]
 
-    variations.forEach(({ method, status }) => {
-        const message = getReasonPhrase(status)
+    variations.forEach(({ method, status, message, handler }) => {
+        message = message || getReasonPhrase(status)
+        handler = handler || ((req, res: Response) => res.status(status).json({ status, message }))
 
-        router[method](route, (req, res: Response) => res.status(status).json({ status, message }))
+        router[method](route, handler)
     })
 })
 

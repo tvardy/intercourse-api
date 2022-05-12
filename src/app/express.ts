@@ -1,5 +1,5 @@
 import express, { Application, Response } from 'express'
-import { ReasonPhrases } from 'http-status-codes'
+import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 
 import { config } from '../config'
 
@@ -18,9 +18,10 @@ app.get('/', (req, res: Response) => {
 })
 
 app.all('*', (req, res: Response) => {
-  res.status(404).json({ status: 404, message: ReasonPhrases.NOT_FOUND })
+  const status = StatusCodes.NOT_FOUND
+  res.status(status).json({ status, message: ReasonPhrases.NOT_FOUND })
 })
 
-app.listen(port, function () {
-  console.log(`Express App is listening on port ${port} !`)
+app.listen(port, () => {
+  console.log(`Express App is listening on port ${port}`)
 })
