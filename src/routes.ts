@@ -1,18 +1,7 @@
 import { StatusCodes } from 'http-status-codes'
+import { ArraysOfTypeByKey, RouteVariation } from './types'
 
-type Method = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head'
-
-interface RouteVariation {
-    method: Method;
-    status: number;
-    message?: string;
-}
-
-interface ObjectByKeyContainer<type> {
-    [key: string]: type[]
-}
-
-const routes: ObjectByKeyContainer<RouteVariation> = {
+const routes: ArraysOfTypeByKey<RouteVariation> = {
     '/strapon': [
         { method: 'get', status: StatusCodes.OK }
     ]
