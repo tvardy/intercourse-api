@@ -18,8 +18,8 @@ app.get('/', (req, res: Response) => {
 })
 
 app.all('*', (req, res: Response) => {
-  const status = StatusCodes.NOT_FOUND
-  res.status(status).json({ status, message: ReasonPhrases.NOT_FOUND })
+  const status = StatusCodes.NOT_IMPLEMENTED
+  res.status(status).json({ status, message: ReasonPhrases.NOT_IMPLEMENTED })
 })
 
 app.listen(port, () => {

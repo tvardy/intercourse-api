@@ -9,7 +9,7 @@ const router = Router()
 const middleware = (): SomeHandler => router
 
 const sendDefaultJSON = (res: SomeResponse, { status, message }: DefaultJSON) => {
-    res.status(status).json({ status, message })
+    res.status(status).json({ status, message }).end()
 }
 
 const send = (res: SomeResponse, status: number) => {
@@ -23,13 +23,14 @@ Object.keys(routes).forEach((route): void => {
     variations.forEach(({
         method,
         status = StatusCodes.OK,
-        message = getReasonPhrase(StatusCodes.OK),
+        message,
         handler
     }) => {
+        let _message = message || getReasonPhrase(status)
         let _handler = handler ?
             handler(sendDefaultJSON, send)
             :
-            ((req: SomeRequest, res: SomeResponse) => sendDefaultJSON(res, { status, message }))
+            ((req: SomeRequest, res: SomeResponse) => sendDefaultJSON(res, { status, message: _message }))
 
         router[method](route, _handler)
         
