@@ -15,7 +15,7 @@ const getHandler: CombinationHandlerFn = ({ method }) => {
     if (/^get$/i.test(method)) {
         return {
             status: StatusCodes.PARTIAL_CONTENT,
-            message: `Put it back... or something else... please.`
+            message: `${ReasonPhrases.PARTIAL_CONTENT}... Put it back... or something else... please.`
         }
     }
 
@@ -26,7 +26,6 @@ const combinations: CombinationHandler[] = [
     {
         regex: /(di(ck|ldo)|strapon)-(pussy|mouth)/,
         react(options) {
-            console.log('options', options)
             return getHandler(options) || lengthHandler(options)
         }
     },
@@ -36,7 +35,7 @@ const combinations: CombinationHandler[] = [
             if (options.query['condom'] === undefined) {
                 return {
                     status: StatusCodes.UNAUTHORIZED,
-                    message: ReasonPhrases.UNAUTHORIZED
+                    message: `${ReasonPhrases.UNAUTHORIZED} without ?condom`
                 }
             }
 
@@ -55,7 +54,7 @@ const combinations: CombinationHandler[] = [
             if (options.query['washed'] === undefined) {
                 return {
                     status: StatusCodes.NOT_ACCEPTABLE,
-                    message: `${ReasonPhrases.NOT_ACCEPTABLE} without a wash`
+                    message: `${ReasonPhrases.NOT_ACCEPTABLE} without being ?washed`
                 }
             }
 
@@ -64,11 +63,11 @@ const combinations: CombinationHandler[] = [
     }
 ]
 
-export const combinationsHandler: PassThroughHandler = (json, send) => {
+export const combinationsHandler: PassThroughHandler<SomeResponse> = (json, send) => {
     return (req: SomeRequest, res: SomeResponse) => {
         const { query } = req
         const { what, where } = req.params
-        const _length = req.get('Content-Length')
+        const _length = req.headers['content-length']
         const length = Number(_length)
         
         if (!length) {
@@ -84,7 +83,7 @@ export const combinationsHandler: PassThroughHandler = (json, send) => {
                     query
                 }
                 const reaction = result.react(options)
-                console.log(':', req.method, what, where, reaction)
+                
                 if (typeof reaction !== 'boolean') {
                     json(res, reaction as DefaultJSON)
                     return
