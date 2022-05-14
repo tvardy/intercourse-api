@@ -3,7 +3,7 @@ import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 
 import { config } from '../config'
 
-import expressAlike from '../utils/polkaExpressAlike'
+import expressAlike from '../middleware/polkaExpressAlike'
 import intercourse from '../middleware/express'
 
 const app: Polka = polka()
