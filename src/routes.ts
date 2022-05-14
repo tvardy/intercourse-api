@@ -30,10 +30,12 @@ const routes: ArraysOfTypeByKey<RouteVariation> = {
     '/coffee': [
         { method: 'all', status: StatusCodes.IM_A_TEAPOT }
     ],
+    '/:what?/from/:where?': [
+        { method: 'get', handler: combinationsHandler }
+    ],
     '/:what?/into/:where?': [
         { method: 'put', handler: combinationsHandler }
     ],
-    // '/:what?/from/:where?': [] // GET
 }
 
 export default routes
