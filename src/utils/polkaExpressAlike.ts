@@ -1,4 +1,3 @@
-import polka from 'polka'
 import { SomeHandler } from '../types'
 
 const middleware = (): SomeHandler => {
@@ -6,6 +5,13 @@ const middleware = (): SomeHandler => {
 
         res.status = function (status: number) {
             res.statusCode = status
+            return this
+        }
+
+        res.set = function (field: string, value?: string | string[] | undefined) {
+            res.writeHead(res.statusCode, {
+                [field]: value?.toString()
+            })
             return this
         }
 

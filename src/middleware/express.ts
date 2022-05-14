@@ -30,14 +30,14 @@ Object.keys(routes).forEach((route): void => {
         let _handler = handler ?
             handler(sendDefaultJSON, send)
             :
-            ((req: SomeRequest, res: SomeResponse) => sendDefaultJSON(res, { status, message: _message }))
+            ((_: SomeRequest, res: SomeResponse) => sendDefaultJSON(res, { status, message: _message }))
 
         router[method](route, _handler)
         
         allow.push(method)
     })
 
-    router.options(route, (req, res: SomeResponse) => {
+    router.options(route, (_: SomeRequest, res: SomeResponse) => {
         res
             .set('Allow', allow.map(s => s.toUpperCase()).join(', '))
             .end()

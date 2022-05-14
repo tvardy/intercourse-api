@@ -1,15 +1,16 @@
 import polka, { Polka } from 'polka'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
+
 import { config } from '../config'
 
 import expressAlike from '../utils/polkaExpressAlike'
-// import intercourse from '../middleware/express'
+import intercourse from '../middleware/express'
 
 const app: Polka = polka()
 
 const port: string | number = config.port
 
-app.use(expressAlike()/*, intercourse()*/)
+app.use(expressAlike(), intercourse())
 
 app.get('/', (req, res) => {
     res.json({
