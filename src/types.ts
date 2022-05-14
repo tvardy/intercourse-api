@@ -8,7 +8,16 @@ export type DefaultJsonHandler = (res: SomeResponse, { status, message }: Defaul
 export type DefaultEmptyHandler = (res: SomeResponse, status: number) => void
 export type PassThroughHandler = (jsonFn: DefaultJsonHandler, endFn: DefaultEmptyHandler) => SomeHandler
 export type AnyObject = { [key: string]: any }
-
+export type CombinationHandlerFn = (i: CombinationHandlerInput) => DefaultJSON | Boolean
+export interface CombinationHandler {
+    regex: RegExp
+    react: CombinationHandlerFn
+}
+export interface CombinationHandlerInput {
+    method: Method
+    length: number
+    query: AnyObject
+}
 export interface RouteVariation {
     method: Method
     status?: number

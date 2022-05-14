@@ -1,16 +1,5 @@
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
-import { AnyObject, ArraysOfTypeByKey, DefaultJSON, Method, RouteVariation, SomeRequest, SomeResponse } from './types'
-
-type CombinationHandlerFn = (i: CombinationHandlerInput) => DefaultJSON | Boolean
-interface CombinationHandler {
-    regex: RegExp
-    react: CombinationHandlerFn
-}
-interface CombinationHandlerInput {
-    method: Method
-    length: number
-    query: AnyObject
-}
+import { ArraysOfTypeByKey, CombinationHandler, CombinationHandlerFn, CombinationHandlerInput, DefaultJSON, RouteVariation, SomeRequest, SomeResponse } from './types'
 
 const lengthHandler: CombinationHandlerFn = ({ length }) => {
     if (length < 16) {
@@ -24,13 +13,13 @@ const lengthHandler: CombinationHandlerFn = ({ length }) => {
 
 const combinations: CombinationHandler[] = [
     {
-        regex: /(di(ck|ldo))-(pussy|mouth)/,
+        regex: /(di(ck|ldo)|strapon)-(pussy|mouth)/,
         react(options) {
             return lengthHandler(options)
         }
     },
     {
-        regex: /(di(ck|ldo))-(ass)/,
+        regex: /(di(ck|ldo)|strapon)-(ass)/,
         react(options) {
             if (options.query['condom'] === undefined) {
                 return {
@@ -64,30 +53,28 @@ const combinations: CombinationHandler[] = [
 ]
 
 const routes: ArraysOfTypeByKey<RouteVariation> = {
-    '/strapon': [
-        { method: 'get', status: StatusCodes.OK },
-        { method: 'put', status: StatusCodes.ACCEPTED }
-    ],
-    '/highheels': [
+    '/:i(strapon|dildo|highheels|latex|handcuffs|ropes|stripes)': [
         { method: 'get', status: StatusCodes.OK },
         { method: 'put', status: StatusCodes.ACCEPTED }
     ],
     '/escort': [
         { method: 'all', status: StatusCodes.PAYMENT_REQUIRED }
     ],
-    '/underage': [
+    '/:i((under|teen)age|teen(ager)?)': [
         { method: 'all', status: StatusCodes.UNAVAILABLE_FOR_LEGAL_REASONS }
     ],
     '/harem': [
-        { method: 'all', status: StatusCodes.MULTIPLE_CHOICES }
+        { method: 'get', status: StatusCodes.MULTIPLE_CHOICES },
+        { method: 'post', status: StatusCodes.MULTIPLE_CHOICES },
+        { method: 'put', status: StatusCodes.MULTIPLE_CHOICES },
+        { method: 'patch', status: StatusCodes.MULTIPLE_CHOICES },
+        { method: 'head', status: StatusCodes.MULTIPLE_CHOICES },
+        { method: 'delete', status: StatusCodes.METHOD_NOT_ALLOWED }
     ],
     '/gangbang': [
         { method: 'all', status: StatusCodes.TOO_MANY_REQUESTS }
     ],
-    '/ejaculation': [
-        { method: 'get', status: 425, message: 'Too early' }
-    ],
-    '/cum': [
+    '/:i(ejaculation)|(cum)|(orgasm)': [
         { method: 'get', status: 425, message: 'Too early' }
     ],
     '/coffee': [
