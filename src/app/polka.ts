@@ -4,23 +4,20 @@ import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 import { config } from '../config'
 
 import expressAlike from '../middleware/polkaExpressAlike'
-import intercourse from '../middleware/express'
+import intercourse from '../middleware/polka'
+import { SomeRequest, SomeResponse } from '../types'
 
 const app: Polka = polka()
 
 const port: string | number = config.port
 
-app.use(expressAlike(), intercourse())
+app.use(expressAlike())
+app.use('ic', intercourse())
 
-app.get('/', (req, res) => {
+app.get('/', (req: SomeRequest, res: SomeResponse) => {
     res.json({
         app: 'Polka Intercourse API'
     })
-})
-
-app.all('*', (req, res) => {
-    const status = StatusCodes.NOT_IMPLEMENTED
-    res.status(status).json({ status, message: ReasonPhrases.NOT_IMPLEMENTED })
 })
 
 app.listen(port, () => {

@@ -18,7 +18,7 @@ export interface CombinationHandler {
 export interface CombinationHandlerInput {
     method: Method
     length: number
-    query: AnyObject
+    query: AnyObject | undefined
 }
 export interface RouteVariation {
     method: Method

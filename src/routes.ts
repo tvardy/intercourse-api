@@ -3,15 +3,8 @@ import { ArraysOfTypeByKey, RouteVariation } from './types'
 import { combinationsHandler } from './combinations'
 
 const routes: ArraysOfTypeByKey<RouteVariation> = {
-    '/:i(strapon|dildo|highheels|latex|handcuffs|ropes|stripes)': [
-        { method: 'get', status: StatusCodes.OK },
-        { method: 'put', status: StatusCodes.ACCEPTED }
-    ],
-    '/escort': [
+    '/escort/:details?': [
         { method: 'all', status: StatusCodes.PAYMENT_REQUIRED }
-    ],
-    '/:i((under|teen)age|teen(ager)?)': [
-        { method: 'all', status: StatusCodes.UNAVAILABLE_FOR_LEGAL_REASONS }
     ],
     '/harem': [
         { method: 'get', status: StatusCodes.MULTIPLE_CHOICES },
@@ -24,11 +17,18 @@ const routes: ArraysOfTypeByKey<RouteVariation> = {
     '/gangbang': [
         { method: 'all', status: StatusCodes.TOO_MANY_REQUESTS }
     ],
-    '/:i(ejaculation|cum|orgasm)': [
-        { method: 'get', status: 425, message: 'Too early' }
-    ],
     '/coffee': [
         { method: 'all', status: StatusCodes.IM_A_TEAPOT }
+    ],
+    '/:i(strapon|dildo|highheels|latex|handcuffs|ropes|stripes)': [
+        { method: 'get', status: StatusCodes.OK },
+        { method: 'put', status: StatusCodes.ACCEPTED }
+    ],
+    '/:i((under|teen)age|teen(ager)?)': [
+        { method: 'all', status: StatusCodes.UNAVAILABLE_FOR_LEGAL_REASONS }
+    ],
+    '/:i(ejaculation|cum|orgasm)': [
+        { method: 'get', status: 425, message: 'Too early' }
     ],
     '/:what?/from/:where?': [
         { method: 'get', handler: combinationsHandler }

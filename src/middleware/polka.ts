@@ -1,17 +1,22 @@
-import { Router, Response, Request } from 'express'
+import polka, { Polka } from 'polka'
 import { getReasonPhrase, ReasonPhrases, StatusCodes } from 'http-status-codes'
 
-import { DefaultJSON, Method, SomeHandler } from '../types'
+import expressAlike from './polkaExpressAlike'
+import { stripRoute } from '../utils/stripRoute'
+
+import { DefaultJSON, Method, SomeRequest, SomeResponse } from '../types'
 
 import routes from '../routes'
 
-const router = Router()
+const app: Polka = polka()
 
-const sendDefaultJSON = (res: Response, { status, message }: DefaultJSON) => {
+app.use(expressAlike())
+
+const sendDefaultJSON = (res: SomeResponse, { status, message }: DefaultJSON) => {
     res.status(status).json({ status, message }).end()
 }
 
-const send = (res: Response, status: number) => {
+const send = (res: SomeResponse, status: number) => {
     res.status(status).end()
 }
 
@@ -29,25 +34,27 @@ Object.keys(routes).forEach((route): void => {
         let _handler = handler ?
             handler(sendDefaultJSON, send)
             :
-            ((_: Request, res: Response) => sendDefaultJSON(res, { status, message: _message }))
+            ((_: SomeRequest, res: SomeResponse) => sendDefaultJSON(res, { status, message: _message }))
 
-        router[method](route, _handler)
+        let _routes = stripRoute(route)
+
+        _routes.forEach((_route) => {
+            app[method](_route, _handler)
+        })
         
         allow.push(method)
     })
 
-    router.options(route, (_, res: Response) => {
+    app.options(route, (_: SomeRequest, res: SomeResponse) => {
         res
             .set('Allow', allow.map(s => s.toUpperCase()).join(', '))
             .end()
     })
 })
 
-router.all('*', (req, res: Response) => {
+app.all('*', (_, res) => {
     const status = StatusCodes.NOT_IMPLEMENTED
     res.status(status).json({ status, message: ReasonPhrases.NOT_IMPLEMENTED })
 })
 
-const middleware = (): SomeHandler => router
-
-export default middleware
+export default () => app

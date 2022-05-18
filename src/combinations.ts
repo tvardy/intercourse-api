@@ -1,10 +1,11 @@
 import { ReasonPhrases, StatusCodes } from "http-status-codes"
-import { CombinationHandler, CombinationHandlerFn, CombinationHandlerInput, DefaultJSON, Method, PassThroughHandler, SomeRequest, SomeResponse } from "./types"
+import { AnyObject, CombinationHandler, CombinationHandlerFn, CombinationHandlerInput, DefaultJSON, Method, PassThroughHandler, SomeRequest, SomeResponse } from "./types"
 
 const lengthHandler: CombinationHandlerFn = ({ length }) => {
     if (length < 16) {
         return true
     }
+    
     return {
         status: StatusCodes.REQUEST_TOO_LONG,
         message: ReasonPhrases.REQUEST_TOO_LONG
@@ -32,7 +33,7 @@ const combinations: CombinationHandler[] = [
     {
         regex: /(di(ck|ldo)|strapon)-(ass)/,
         react(options) {
-            if (options.query['condom'] === undefined) {
+            if (options.query?.condom === undefined) {
                 return {
                     status: StatusCodes.UNAUTHORIZED,
                     message: `${ReasonPhrases.UNAUTHORIZED} without ?condom`
@@ -51,7 +52,7 @@ const combinations: CombinationHandler[] = [
     {
         regex: /(tongue|finger)-(ass)/,
         react(options) {
-            if (options.query['washed'] === undefined) {
+            if (options.query?.washed === undefined) {
                 return {
                     status: StatusCodes.NOT_ACCEPTABLE,
                     message: `${ReasonPhrases.NOT_ACCEPTABLE} without being ?washed`
@@ -63,11 +64,17 @@ const combinations: CombinationHandler[] = [
     }
 ]
 
-export const combinationsHandler: PassThroughHandler<SomeResponse> = (json, send) => {
+export const combinationsHandler: PassThroughHandler = (json, send) => {
     return (req: SomeRequest, res: SomeResponse) => {
         const { query } = req
-        const { what, where } = req.params
-        const _length = req.headers['content-length']
+        const { what, where } = req.params as AnyObject
+
+        let _length: string | undefined = '0'
+        
+        if (req.headers) {
+            _length = req.headers['content-length']
+        }
+
         const length = Number(_length)
         
         if (!length) {
