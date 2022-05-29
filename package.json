@@ -5,6 +5,7 @@
   "scripts": {
     "compile": "tsc",
     "dev:express": "nodemon src/app/express.ts",
+    "dev:koa": "nodemon src/app/koa.ts",
     "dev:polka": "nodemon src/app/polka.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "@types/express": "4.17.13",
+    "@types/koa": "2.13.4",
     "@types/node": "14.11.2",
     "@types/polka": "0.5.4",
     "nodemon": "2.0.16",
