@@ -11,7 +11,7 @@ const port: string | number = config.port
 
 app.get('/', (req, res: Response) => {
   res.json({
-    app: 'Express Intercourse API'
+    app: 'Express: Intercourse API'
   })
 })
 

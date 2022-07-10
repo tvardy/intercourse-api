@@ -4,19 +4,20 @@ import { getReasonPhrase, ReasonPhrases, StatusCodes } from 'http-status-codes'
 import expressAlike from './polkaExpressAlike'
 import { stripRoute } from '../utils/stripRoute'
 
-import { DefaultJSON, Method, SomeRequest, SomeResponse } from '../types'
+import { DefaultJSON, Method, SomeRequest, SomeResponse, SomeHandler } from '../types'
 
 import routes from '../routes'
+import { RequestHandler } from 'express'
 
 const app: Polka = polka()
 
 app.use(expressAlike())
 
-const sendDefaultJSON = (res: SomeResponse, { status, message }: DefaultJSON) => {
+const sendDefaultJSON = (res: any, { status, message }: DefaultJSON) => {
     res.status(status).json({ status, message }).end()
 }
 
-const send = (res: SomeResponse, status: number) => {
+const send = (res: any, status: number) => {
     res.status(status).end()
 }
 
@@ -30,16 +31,15 @@ Object.keys(routes).forEach((route): void => {
         message,
         handler
     }) => {
-        let _message = message || getReasonPhrase(status)
-        let _handler = handler ?
+        const _message = message || getReasonPhrase(status)
+        const _handler = handler ?
             handler(sendDefaultJSON, send)
             :
             ((_: SomeRequest, res: SomeResponse) => sendDefaultJSON(res, { status, message: _message }))
 
-        let _routes = stripRoute(route)
-
+        const _routes = stripRoute(route)
         _routes.forEach((_route) => {
-            app[method](_route, _handler)
+            app[method](_route, _handler as RequestHandler)
         })
         
         allow.push(method)

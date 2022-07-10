@@ -7,11 +7,11 @@ import routes from '../routes'
 
 const router = Router()
 
-const sendDefaultJSON = (res: Response, { status, message }: DefaultJSON) => {
+const sendDefaultJSON = (res: any, { status, message }: DefaultJSON) => {
     res.status(status).json({ status, message }).end()
 }
 
-const send = (res: Response, status: number) => {
+const send = (res: any, status: number) => {
     res.status(status).end()
 }
 
@@ -25,13 +25,13 @@ Object.keys(routes).forEach((route): void => {
         message,
         handler
     }) => {
-        let _message = message || getReasonPhrase(status)
-        let _handler = handler ?
+        const _message = message || getReasonPhrase(status)
+        const _handler = handler ?
             handler(sendDefaultJSON, send)
             :
             ((_: Request, res: Response) => sendDefaultJSON(res, { status, message: _message }))
 
-        router[method](route, _handler)
+        router[method](route, _handler as SomeHandler)
         
         allow.push(method)
     })
@@ -43,7 +43,7 @@ Object.keys(routes).forEach((route): void => {
     })
 })
 
-router.all('*', (req, res: Response) => {
+router.all('*', (_, res: Response) => {
     const status = StatusCodes.NOT_IMPLEMENTED
     res.status(status).json({ status, message: ReasonPhrases.NOT_IMPLEMENTED })
 })

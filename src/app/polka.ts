@@ -16,7 +16,7 @@ app.use('ic', intercourse())
 
 app.get('/', (req: SomeRequest, res: SomeResponse) => {
     res.json({
-        app: 'Polka Intercourse API'
+        app: 'Polka: Intercourse API'
     })
 })
 
