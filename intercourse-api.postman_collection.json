@@ -522,7 +522,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "Pppp"
+							"raw": "B=-->"
 						},
 						"url": {
 							"raw": "{{base_url}}/dick/into/pussy",
@@ -599,7 +599,7 @@
 					"response": []
 				},
 				{
-					"name": "tongue/into/pussy",
+					"name": "tongue/into/ear [bad gateway]",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -615,14 +615,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_url}}/tongue/into/pussy",
+							"raw": "{{base_url}}/tongue/into/ear",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"tongue",
 								"into",
-								"pussy"
+								"ear"
 							]
 						}
 					},
@@ -672,7 +672,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "Pppp"
+							"raw": "DICK"
 						},
 						"url": {
 							"raw": "{{base_url}}/dick/into/ass",
@@ -702,7 +702,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "Pppp"
+							"raw": "DICK"
 						},
 						"url": {
 							"raw": "{{base_url}}/dick/into/ass?condom",
