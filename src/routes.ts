@@ -14,13 +14,13 @@ const routes: ArraysOfTypeByKey<RouteVariation> = {
         { method: 'head', status: StatusCodes.MULTIPLE_CHOICES },
         { method: 'delete', status: StatusCodes.METHOD_NOT_ALLOWED }
     ],
-    '/gangbang': [
+    '/:i(gangbang|orgy)': [
         { method: 'all', status: StatusCodes.TOO_MANY_REQUESTS }
     ],
     '/coffee': [
         { method: 'all', status: StatusCodes.IM_A_TEAPOT }
     ],
-    '/:i(strapon|dildo|highheels|latex|handcuffs|ropes|stripes)': [
+    '/:i(strapon|dildo|highheels|latex|handcuffs|ropes|stripes|lingerie|clothes)/:details?': [
         { method: 'get', status: StatusCodes.OK },
         { method: 'put', status: StatusCodes.ACCEPTED }
     ],

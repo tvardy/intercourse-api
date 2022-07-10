@@ -1,6 +1,10 @@
 import { ReasonPhrases, StatusCodes } from "http-status-codes"
 import { AnyObject, CombinationHandler, CombinationHandlerFn, CombinationHandlerInput, DefaultJSON, Method, PassThroughHandler, SomeRequest, SomeResponse } from "./types"
 
+const isLengthRequired = (str: string): Boolean => {
+    return /(di(ck|ldo)|strapon)/.test(str)
+}
+
 const lengthHandler: CombinationHandlerFn = ({ length }) => {
     if (length < 16) {
         return true
@@ -55,7 +59,7 @@ const combinations: CombinationHandler[] = [
             if (options.query?.washed === undefined) {
                 return {
                     status: StatusCodes.NOT_ACCEPTABLE,
-                    message: `${ReasonPhrases.NOT_ACCEPTABLE} without being ?washed`
+                    message: `${ReasonPhrases.NOT_ACCEPTABLE} without ass being ?washed`
                 }
             }
 
@@ -77,12 +81,11 @@ export const combinationsHandler: PassThroughHandler = (json, send) => {
 
         const length = Number(_length)
         
-        if (!length) {
+        if (!length && isLengthRequired(what)) {
             send(res, StatusCodes.LENGTH_REQUIRED)
             return
         } else {
             const result = combinations.find(r => r.regex.test(`${what}-${where}`))
-
             if (result) {
                 const options: CombinationHandlerInput = {
                     method: req.method as Method,

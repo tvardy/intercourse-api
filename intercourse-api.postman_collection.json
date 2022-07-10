@@ -1,0 +1,929 @@
+{
+	"info": {
+		"_postman_id": "995160f2-87c9-4924-863c-9c53881b43b5",
+		"name": "intercourse-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "toys",
+			"item": [
+				{
+					"name": "[get-toys]",
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/strapon",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"strapon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "strapon",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/strapon",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"strapon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dildo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/dildo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dildo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "highheels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/highheels",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"highheels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "latex 01",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/latex/clothes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"latex",
+								"clothes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "latex 02",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/latex/mask",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"latex",
+								"mask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "handcuffs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/handcuffs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"handcuffs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ropes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/ropes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"ropes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stripes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/stripes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"stripes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clothes/off",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clothes/off",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clothes",
+								"off"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "strapon",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/strapon",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"strapon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "highheels",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/highheels/on",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"highheels",
+								"on"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "latex/:anything",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/latex/panties",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"latex",
+								"panties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "handcuffs",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/handcuffs/on",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"handcuffs",
+								"on"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lingery/on",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/lingerie/on",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"lingerie",
+								"on"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "people",
+			"item": [
+				{
+					"name": "escort/:details?",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/escort/girl",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"escort",
+								"girl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "underage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/underage",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"underage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "teen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teen",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gangbang",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/gangbang",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"gangbang"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orgy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orgy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orgy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "harem",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/harem",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"harem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "harem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/harem",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"harem"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "finish",
+			"item": [
+				{
+					"name": "cum",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cum",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cum"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ejaculation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orgasm",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orgasm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orgasm",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orgasm",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orgasm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "actions",
+			"item": [
+				{
+					"name": ":what?/into/:where?",
+					"request": {
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/something/into/somewhere",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"something",
+								"into",
+								"somewhere"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":what?/from/:where?",
+					"request": {
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/something/from/somewhere",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"something",
+								"from",
+								"somewhere"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dick/into/pussy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Pppp"
+						},
+						"url": {
+							"raw": "{{base_url}}/dick/into/pussy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dick",
+								"into",
+								"pussy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dick/into/pussy [no payload length]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/dick/into/pussy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dick",
+								"into",
+								"pussy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dick/into/pussy [too long]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "B===+---------->"
+						},
+						"url": {
+							"raw": "{{base_url}}/dick/into/pussy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dick",
+								"into",
+								"pussy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tongue/into/pussy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/tongue/into/pussy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tongue",
+								"into",
+								"pussy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finger/into/mouth",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/finger/into/mouth",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"finger",
+								"into",
+								"mouth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dick/into/ass",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Pppp"
+						},
+						"url": {
+							"raw": "{{base_url}}/dick/into/ass",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dick",
+								"into",
+								"ass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dick/into/ass?condom",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Pppp"
+						},
+						"url": {
+							"raw": "{{base_url}}/dick/into/ass?condom",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dick",
+								"into",
+								"ass"
+							],
+							"query": [
+								{
+									"key": "condom",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tongue/into/ass",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/tongue/into/ass",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tongue",
+								"into",
+								"ass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tongue/into/ass?washed",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/tongue/into/ass?washed",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tongue",
+								"into",
+								"ass"
+							],
+							"query": [
+								{
+									"key": "washed",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dildo/from/pussy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "B---------->"
+						},
+						"url": {
+							"raw": "{{base_url}}/dildo/from/pussy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dildo",
+								"from",
+								"pussy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "strapon/from/ass?condom",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Length",
+								"value": "42",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "B---------->"
+						},
+						"url": {
+							"raw": "{{base_url}}/strapon/from/ass?condom",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"strapon",
+								"from",
+								"ass"
+							],
+							"query": [
+								{
+									"key": "condom",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coffee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/coffee",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"coffee"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:1234",
+			"type": "default"
+		}
+	]
+}
