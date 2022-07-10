@@ -9,13 +9,13 @@ const app: Application = express()
 
 const port: string | number = config.port
 
-app.use(intercourse())
-
 app.get('/', (req, res: Response) => {
   res.json({
     app: 'Express Intercourse API'
   })
 })
+
+app.use(intercourse())
 
 app.listen(port, () => {
   console.log(`Express App is listening on port ${port}`)
