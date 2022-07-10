@@ -1,5 +1,5 @@
 import { ReasonPhrases, StatusCodes } from "http-status-codes"
-import { AnyObject, CombinationHandler, CombinationHandlerFn, CombinationHandlerInput, DefaultJSON, Method, PassThroughHandler, SomeRequest, SomeResponse } from "./types"
+import { CombinationHandler, CombinationHandlerFn, CombinationHandlerInput, DefaultJSON, Method, PassThroughHandler, SomeRequest, SomeResponse, KoaContext, KoaResponse, Query } from "./types"
 
 const isLengthRequired = (str: string): Boolean => {
     return /(di(ck|ldo)|strapon)/.test(str)
@@ -68,17 +68,23 @@ const combinations: CombinationHandler[] = [
     }
 ]
 
-export const combinationsHandler: PassThroughHandler = (json, send) => {
-    return (req: SomeRequest, res: SomeResponse) => {
+export const combinationsHandler: PassThroughHandler = (json, send, options) => {
+    if (options?.isKoa) {
+        return (ctx: KoaContext) => innerHandler(ctx, ctx.response)
+    }
+
+    return (req: SomeRequest, res: SomeResponse) => innerHandler(req, res)
+
+    function innerHandler(req: SomeRequest | KoaContext, res: SomeResponse | KoaResponse) {
         const { query } = req
-        const { what, where } = req.params as AnyObject
+        const { what, where } = req.params
 
         let _length: string | undefined = '0'
         
         if (req.headers) {
             _length = req.headers['content-length']
         }
-
+    
         const length = Number(_length)
         
         if (!length && isLengthRequired(what)) {

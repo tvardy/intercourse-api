@@ -24,7 +24,7 @@ const routes: ArraysOfTypeByKey<RouteVariation> = {
         { method: 'get', status: StatusCodes.OK },
         { method: 'put', status: StatusCodes.ACCEPTED }
     ],
-    '/:i((under|teen)age|teen(ager)?)': [
+    '/:i(under|teen)age|teen(ager)?': [
         { method: 'all', status: StatusCodes.UNAVAILABLE_FOR_LEGAL_REASONS }
     ],
     '/:i(ejaculation|cum|orgasm)': [
