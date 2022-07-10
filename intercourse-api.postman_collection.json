@@ -253,7 +253,7 @@
 					"response": []
 				},
 				{
-					"name": "lingery/on",
+					"name": "lingerie/on",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -423,12 +423,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/orgasm",
+							"raw": "{{base_url}}/ejaculation",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"orgasm"
+								"ejaculation"
 							]
 						}
 					},
@@ -539,7 +539,7 @@
 					"response": []
 				},
 				{
-					"name": "dick/into/pussy [no payload length]",
+					"name": "dick/into/pussy [no body provided]",
 					"request": {
 						"method": "PUT",
 						"header": [
