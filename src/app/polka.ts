@@ -15,11 +15,11 @@ app.use(expressAlike())
 app.use('ic', intercourse())
 
 app.get('/', (req: SomeRequest, res: SomeResponse) => {
-    res.json({
-        app: 'Polka: Intercourse API'
-    })
+  res.json({
+    app: 'Polka: Intercourse API'
+  })
 })
 
 app.listen(port, () => {
-    console.log(`Polka App is listening on port ${port}`)
+  console.log(`Polka App is listening on port ${port}`)
 })
