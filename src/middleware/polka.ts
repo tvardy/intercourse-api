@@ -9,7 +9,7 @@ import {
   Method,
   SomeRequest,
   SomeResponse,
-  SomeHandler
+  ExpressResponse
 } from '../types'
 
 import routes from '../shared/routes'
@@ -51,7 +51,8 @@ Object.keys(routes).forEach((route): void => {
     }
   )
 
-  app.options(route, (_: SomeRequest, res: SomeResponse) => {
+  app.options(route, (_: SomeRequest, res: ExpressResponse) => {
+    // ExpressResponse because we've used `expressAlike` middleware
     res.set('Allow', allow.map(s => s.toUpperCase()).join(', ')).end()
   })
 })

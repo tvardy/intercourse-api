@@ -1,6 +1,6 @@
-import { SomeHandler } from '../types'
+import { Middleware } from 'polka'
 
-const middleware = (): SomeHandler => {
+const middleware = (): Middleware => {
   return function expressAlike (_, res, next) {
     if (!res.status) {
       res.status = function (status: number) {

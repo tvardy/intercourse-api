@@ -1,5 +1,4 @@
-import express, { Application, Response } from 'express'
-import { ReasonPhrases, StatusCodes } from 'http-status-codes'
+import express, { Application, RequestHandler, Response } from 'express'
 
 import { config } from '../config'
 
@@ -15,7 +14,7 @@ app.get('/', (req, res: Response) => {
   })
 })
 
-app.use(intercourse())
+app.use(intercourse() as RequestHandler)
 
 app.listen(port, () => {
   console.log(`Express App is listening on port ${port}`)

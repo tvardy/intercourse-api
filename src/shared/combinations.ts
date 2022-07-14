@@ -8,9 +8,7 @@ import {
   PassThroughHandler,
   SomeRequest,
   SomeResponse,
-  KoaContext,
-  KoaResponse,
-  Query
+  KoaContext
 } from '../types'
 
 const isLengthRequired = (str: string): Boolean => {
@@ -86,17 +84,20 @@ export const combinationsHandler: PassThroughHandler = (
   options
 ) => {
   if (options?.isKoa) {
-    return (ctx: KoaContext) => innerHandler(ctx, ctx.response)
+    return (ctx: KoaContext) => innerHandler(ctx.request, ctx.response)
   }
 
   return (req: SomeRequest, res: SomeResponse) => innerHandler(req, res)
 
-  function innerHandler (
-    req: SomeRequest | KoaContext,
-    res: SomeResponse | KoaResponse
-  ) {
+  function innerHandler (req: SomeRequest, res: SomeResponse) {
     const { query } = req
-    const { what, where } = req.params
+    let what = '',
+      where = ''
+
+    if ('params' in req) {
+      what = req.params.what
+      where = req.params.where
+    }
 
     let _length: string | undefined = '0'
 

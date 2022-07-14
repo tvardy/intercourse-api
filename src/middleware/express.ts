@@ -1,4 +1,4 @@
-import { Router, Response, Request } from 'express'
+import { Router, Response, Request, RequestHandler } from 'express'
 import { getReasonPhrase, ReasonPhrases, StatusCodes } from 'http-status-codes'
 
 import { DefaultJSON, Method, SomeHandler } from '../types'
@@ -30,7 +30,7 @@ Object.keys(routes).forEach((route): void => {
         : (_: Request, res: Response) =>
             sendDefaultJSON(res, { status, message: _message })
 
-      router[method](route, _handler as SomeHandler)
+      router[method](route, _handler as RequestHandler)
 
       allow.push(method)
     }
