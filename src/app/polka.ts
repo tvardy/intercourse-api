@@ -2,7 +2,6 @@ import polka, { Polka } from 'polka'
 
 import { config } from '../config'
 
-import expressAlike from '../middleware/polkaExpressAlike'
 import intercourse from '../middleware/polka'
 import { SomeRequest, ExpressResponse } from '../types'
 
@@ -10,14 +9,17 @@ const app: Polka = polka()
 
 const port: string | number = config.port
 
-app.use(expressAlike())
-app.use('ic', intercourse())
+// unfortunately with Polka, we can't use the sup-app/sub-routing on the main path
+// we need to provide a string for its root endpoint
+app.use('ic', intercourse)
 
 app.get('/', (req: SomeRequest, res: ExpressResponse) => {
-  // ExpressResponse because we've used `expressAlike` middleware
-  res.json({
-    app: 'Polka: Intercourse API'
+  res.writeHead(200, {
+    'content-type': 'application/json'
   })
+  res.end(JSON.stringify({
+    app: 'Polka: Intercourse API'
+  }))
 })
 
 app.listen(port, () => {

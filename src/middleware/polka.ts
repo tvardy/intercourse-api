@@ -62,4 +62,4 @@ app.all('*', (_, res) => {
   res.status(status).json({ status, message: ReasonPhrases.NOT_IMPLEMENTED })
 })
 
-export default () => app
+export default app

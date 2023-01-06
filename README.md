@@ -4,7 +4,7 @@
 
 This repo was an excercise... an excercise of:
 
-- using TypeScript in real life project...
+- using TypeScript for the first time in my own BE project...
 - trying to write a code that might be re-usable between `Express`, `Polka` and `Koa`
 - finding funny usages for HTTP codes...
 
@@ -12,7 +12,7 @@ This repo was an excercise... an excercise of:
 
 I faced too many "slip of a tongue" moments while working with male co-developers.
 
-So many times some of us accidentally mentioned "the stapon endpoint" (instead on "bootstrap"... don't ask we why... we're Poles).
+So many times some of us accidentally mentioned "the stapon endpoint" (instead on "bootstrap"... don't ask me why... we're Poles :joy:).
 
 So many time I've seen chat messages like `curl -X GET /higheels/on` or `PUT /lipstick/on`
 
@@ -20,7 +20,7 @@ So many time I've seen chat messages like `curl -X GET /higheels/on` or `PUT /li
 
 ## Running locally
 
-You need to have Node@^16 and NPM@^8 installed.
+You need to have Node@^16 and NPM@^8 (or Yarn@^1) installed on your machine.
 
 1. clone the repository
 2. install dependencies (run `npm install` or `yarn install` or `bun install` command)
@@ -28,9 +28,9 @@ You need to have Node@^16 and NPM@^8 installed.
 
 ## Using as an easter-egg in your project
 
-Middleware for `Express`, `Polka` and `Koa` are available in the `src/middleware` folder.
+Middleware for `Express`, `Polka` and `Koa` are available in the [`src/middleware`](src/middleware) folder.
 
-Examples of usage are shown in simple apps in `src/app` folder
+Examples of usage are shown in simple apps in [`src/app`](src/app) folder.
 
 ## Some examples
 
