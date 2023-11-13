@@ -2,7 +2,7 @@
 
 ## Short Description
 
-This repo was an excercise... an excercise of:
+This repo was an exercise... an exercise of:
 
 - using TypeScript for the first time in my own BE project...
 - trying to write a code that might be re-usable between `Express`, `Polka` and `Koa`
@@ -12,9 +12,9 @@ This repo was an excercise... an excercise of:
 
 I faced too many "slip of a tongue" moments while working with male co-developers.
 
-So many times some of us accidentally mentioned "the stapon endpoint" (instead on "bootstrap"... don't ask me why... we're Poles :joy:).
+So many times some of us accidentally mentioned "the strapon endpoint" (instead of "bootstrap"... don't ask me why... we're Poles :joy:).
 
-So many time I've seen chat messages like `curl -X GET /higheels/on` or `PUT /lipstick/on`
+So many times I've seen chat messages like `curl -X GET /high-heels/on` or `PUT /lipstick/on`
 
 ...that's why I eventually decided to put such an API to life...
 
